@@ -1,4 +1,3 @@
-/*  your css code here. If applicable */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -24,7 +23,16 @@ body {
   cursor: pointer;
 }
 
-.game h1 {
+.game {
+  display: none; /* initially hidden */
+  margin-top: 20px;
+}
+
+.game.active {
+  display: block; /* shown after submit */
+}
+
+h1 {
   font-size: 2em;
   margin-bottom: 10px;
 }
@@ -39,6 +47,7 @@ body {
 .board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px); /* ADD THIS LINE */
   grid-gap: 10px;
   justify-content: center;
   margin: 0 auto;
@@ -46,7 +55,7 @@ body {
 
 .cell {
   width: 100px;
-  height: 100px;
+  height: 100px; /* FIX: explicit height */
   background-color: #fff;
   border: 2px solid #333;
   font-size: 2em;
@@ -54,14 +63,9 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: background-color 0.3s;
+  user-select: none;
 }
 
 .cell:hover {
   background-color: #e6e6e6;
-}
-
-.cell.disabled {
-  cursor: not-allowed;
-  pointer-events: none;
 }

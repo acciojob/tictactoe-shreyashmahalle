@@ -8,7 +8,7 @@ const cells = document.querySelectorAll(".cell");
 let player1 = "";
 let player2 = "";
 let currentPlayer = "";
-let currentSymbol = "x"; // lowercase to match test
+let currentSymbol = "x";
 let board = ["", "", "", "", "", "", "", "", ""];
 let gameActive = false;
 
@@ -22,7 +22,9 @@ submitBtn.addEventListener("click", () => {
   }
 
   document.querySelector(".player-inputs").style.display = "none";
-  gameSection.style.display = "block";
+
+  // FIX: make sure the game board becomes visible
+  gameSection.classList.add("active");
 
   currentPlayer = player1;
   messageDiv.textContent = `${currentPlayer}, you're up`;
@@ -54,7 +56,7 @@ function handleCellClick(e) {
     return;
   }
 
-  // Switch turns
+  // Switch player
   if (currentPlayer === player1) {
     currentPlayer = player2;
     currentSymbol = "o";

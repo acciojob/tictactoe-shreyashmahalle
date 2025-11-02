@@ -1,7 +1,6 @@
-//your JS code here. If required.
 const submitBtn = document.getElementById("submit");
-const player1Input = document.getElementById("player-1");
-const player2Input = document.getElementById("player-2");
+const player1Input = document.getElementById("player1");
+const player2Input = document.getElementById("player2");
 const gameSection = document.querySelector(".game");
 const messageDiv = document.querySelector(".message");
 const cells = document.querySelectorAll(".cell");
@@ -9,7 +8,7 @@ const cells = document.querySelectorAll(".cell");
 let player1 = "";
 let player2 = "";
 let currentPlayer = "";
-let currentSymbol = "X";
+let currentSymbol = "x"; // lowercase to match test
 let board = ["", "", "", "", "", "", "", "", ""];
 let gameActive = false;
 
@@ -26,7 +25,7 @@ submitBtn.addEventListener("click", () => {
   gameSection.style.display = "block";
 
   currentPlayer = player1;
-  messageDiv.textContent = `${currentPlayer}, you're up!`;
+  messageDiv.textContent = `${currentPlayer}, you're up`;
   gameActive = true;
 });
 
@@ -42,15 +41,14 @@ function handleCellClick(e) {
 
   board[index] = currentSymbol;
   cell.textContent = currentSymbol;
-  cell.classList.add("disabled");
 
   if (checkWinner()) {
-    messageDiv.textContent = `${currentPlayer}, congratulations you won! 🎉`;
+    messageDiv.textContent = `${currentPlayer} congratulations you won!`;
     gameActive = false;
     return;
   }
 
-  if (board.every(cell => cell !== "")) {
+  if (board.every(c => c !== "")) {
     messageDiv.textContent = "It's a draw!";
     gameActive = false;
     return;
@@ -59,13 +57,13 @@ function handleCellClick(e) {
   // Switch turns
   if (currentPlayer === player1) {
     currentPlayer = player2;
-    currentSymbol = "O";
+    currentSymbol = "o";
   } else {
     currentPlayer = player1;
-    currentSymbol = "X";
+    currentSymbol = "x";
   }
 
-  messageDiv.textContent = `${currentPlayer}, you're up!`;
+  messageDiv.textContent = `${currentPlayer}, you're up`;
 }
 
 function checkWinner() {

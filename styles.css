@@ -1,1 +1,67 @@
 /*  your css code here. If applicable */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.player-inputs input {
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+}
+
+.player-inputs button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.game h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.message {
+  font-size: 1.2em;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border: 2px solid #333;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cell:hover {
+  background-color: #e6e6e6;
+}
+
+.cell.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
